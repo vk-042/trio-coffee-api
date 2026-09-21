@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      STAFF_API_KEY: ${STAFF_API_KEY:?Set STAFF_API_KEY in your shell}
+    volumes:
+      - coffee-data:/data
+    restart: unless-stopped
+volumes:
+  coffee-data:
